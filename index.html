@@ -1,76 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Encanto</title>
+    <title>Loja Encanto | Roupas e Acessórios</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <!-- HEADER ------------------------------------------------>
     <header id="logo">
-        <div>
-            <h1>Loja Encanto</h1>
-            <span class="subtitle">Roupas e Acessórios</span>
-        </div>
+        <div class="container topo-conteudo">
+            <div>
+                <h1>Loja Encanto</h1>
+                <span class="subtitle">Roupas e Acessórios</span>
+            </div>
 
-        <!-- NAV ------------------------------------------------>
-        <nav id="menu">
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Categorias</a></li>
-                <li class="icons"><i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-whatsapp"></i><a href="#"></a></li>
-            </ul>
-         </nav>
+            <!-- NAV ------------------------------------------------>
+            <nav id="menu">
+                <ul>
+                    <li><a href="#logo">Início</a></li>
+                    <li><a href="#vitrine">Produtos</a></li>
+                    <li>
+                        <a href="#area-carrinho">
+                            <i class="fa-solid fa-cart-shopping"></i> Carrinho
+                            <span id="contador-carrinho" class="contador">0</span>
+                        </a>
+                    </li>
+                    <li class="icons"><a href="#" aria-label="Instagram da loja"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li class="icons"><a href="#" aria-label="WhatsApp da loja"><i class="fa-brands fa-whatsapp"></i></a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <!-- MAIN ------------------------------------------------>
-    <main>
-        <section>
+    <main class="container">
+
+        <!-- Avisos: as regras da loja ficam visíveis para o cliente,
+             assim o dono não precisa explicar tudo no WhatsApp -->
+        <section class="avisos" aria-label="Condições da loja">
+            <p><i class="fa-solid fa-truck-fast"></i>Frete grátis a partir de R$ 200,00</p>
+            <p><i class="fa-solid fa-qrcode"></i>5% de desconto pagando no Pix</p>
+            <p><i class="fa-solid fa-ticket"></i>Cupom <strong>PRIMEIRA10</strong>: 10% off</p>
+        </section>
+
+        <!-- VITRINE ------------------------------------------------>
+        <section id="vitrine" class="vitrine">
+            <h2>Nossos produtos</h2>
+            <p class="nota">Até 5 unidades de cada produto por pedido.</p>
+
             <div class="cards">
-                <div class="card-blusa">
-                    <img src="" alt="imagem de uma blusa">
-                    <h2 class="cards">Camiseta Básica</h2>
-                    <span>R$ 49,90</span>
-                    <button type="submit">Adicionar ao carrinho</button>
-                </div>
+                <article class="card" data-id="1">
+                    <div class="card-img"><img src="img-camiseta.jpg" alt="imagem de uma camiseta"></div>
+                    <h3>Camiseta Básica</h3>
+                    <span class="preco">R$ 49,90</span>
+                    <button type="button" class="btn btn-adicionar" data-id="1" data-nome="Camiseta Básica" data-preco="49.90">Adicionar ao carrinho</button>
+                </article>
 
-                <div class="card-moletom">
-                    <img src="" alt="imagem de um moletom">
-                    <h2 class="cards">Moletom</h2>
-                    <span>R$ 89,90</span>
-                    <button type="submit">Adicionar ao carrinho</button>
-                </div>
+                <article class="card" data-id="2">
+                    <div class="card-img"><img src="img-moletom.jpg" alt="imagem de um moletom"></div>
+                    <h3>Moletom</h3>
+                    <span class="preco">R$ 89,90</span>
+                    <button type="button" class="btn btn-adicionar" data-id="2" data-nome="Moletom" data-preco="89.90">Adicionar ao carrinho</button>
+                </article>
 
-                <div class="card-oculos">
-                    <img src="" alt="imagem de um óculos de sol">
-                    <h2 class="cards">Óculos de sol</h2>
-                    <span>R$ 59,90</span>
-                    <button type="submit">Adicionar ao carrinho</button>
-                </div>
+                <article class="card" data-id="3">
+                    <div class="card-img"><img src="img-oculos.jpg" alt="Imagem de um óculos de sol"></div>
+                    <h3>Óculos de sol</h3>
+                    <span class="preco">R$ 59,90</span>
+                    <button type="button" class="btn btn-adicionar" data-id="3" data-nome="Óculos de sol" data-preco="59.90">Adicionar ao carrinho</button>
+                </article>
 
-                <div class="card-bone">
-                    <img src="" alt="imagem de um boné">
-                    <h2 class="cards">Boné</h2>
-                    <span>R$ 35,90</span>
-                    <button type="submit">Adicionar ao carrinho</button>
-                </div>
+                <article class="card" data-id="4">
+                    <div class="card-img"><img src="bone2pg.jpg" alt="Imagem de um boné"></div>
+                    <h3>Boné</h3>
+                    <span class="preco">R$ 35,90</span>
+                    <button type="button" class="btn btn-adicionar" data-id="4" data-nome="Boné" data-preco="35.90">Adicionar ao carrinho</button>
+                </article>
             </div>
+        </section>
+
+        <!-- CARRINHO ------------------------------------------------>
+        <section id="area-carrinho" class="carrinho">
+            <h2>Seu carrinho</h2>
+            <p id="carrinho-vazio" class="vazio">Seu carrinho está vazio.</p>
+
+            <ul id="itens-carrinho" class="lista-carrinho">
+
+            </ul>
+
+            <form action="pedido.php" method="post">
+                <div class="campo">
+                    <label for="cupom">Cupom de desconto</label>
+                    <input type="text" name="cupom" id="cupom" placeholder="Digite seu cupom">
+                </div>
+
+                <div class="campo">
+                    <label for="pagamento">Forma de pagamento</label>
+                    <select name="pagamento" id="pagamento">
+                        <option value="pix">Pix</option>
+                        <option value="cartao">Cartão</option>
+                    </select>
+                </div>
+
+                <input type="hidden" name="carrinho" id="carrinho">
+
+                <div class="resumo">
+                    <p>Subtotal <span id="subtotal">R$ 0,00</span></p>
+                    <p>Desconto <span id="desconto">R$ 0,00</span></p>
+                    <p>Frete <span id="frete">R$ 0,00</span></p>
+                    <p class="total">Total <span id="total">R$ 0,00</span></p>
+                </div>
+
+                <button type="submit" class="btn btn-finalizar">Finalizar pedido</button>
+            </form>
         </section>
     </main>
 
     <!-- FOOTER ------------------------------------------------>
     <footer>
-        <div class="contato">
-            <h2>Contato</h2>
-            <a href="">contato@lojaencanto.com</a>
-            <a href="">(11) 99999-9999</a>
-            <a href="">São Paulo - SP, CEP: 12300-123</a>
+        <div class="container">
+            <div class="contato">
+                <h2>Contato</h2>
+                <a href="mailto:contato@lojaencanto.com">contato@lojaencanto.com</a>
+                <a href="tel:+5511999999999">(11) 99999-9999</a>
+                <p>São Paulo - SP, CEP: 12300-123</p>
+            </div>
+            <p class="copy">&copy; 2026 Loja Encanto. Todos os direitos reservados.</p>
         </div>
-        <p class="copy">&copy; 2026 Loja Encanto. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>

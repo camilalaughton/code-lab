@@ -1,1 +1,307 @@
 @charset "UTF-8";
+
+/* ============ VARIÁVEIS (cores e medidas em um lugar só) ============ */
+:root {
+    --cor-primaria: #8a3a5c;
+    --cor-primaria-escura: #6d2c48;
+    --cor-fundo: #fffaf8;
+    --cor-superficie: #ffffff;
+    --cor-suave: #f6e8ee;
+    --cor-texto: #2b2b2b;
+    --cor-texto-suave: #6b6b6b;
+    --cor-borda: #e6d6dd;
+    --cor-destaque: #2f8f6b;
+    --raio: 12px;
+}
+
+/* ============ RESET ============ */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Sem margin e sem width: 100% no body, que era o que causava a rolagem lateral */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--cor-texto);
+    background: var(--cor-fundo);
+    line-height: 1.5;
+}
+
+/* Centraliza o conteúdo e limita a largura em telas grandes */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ============ HEADER / NAV ============ */
+header {
+    background: var(--cor-superficie);
+    border-bottom: 1px solid var(--cor-borda);
+    padding: 16px 0;
+}
+
+.topo-conteudo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+header h1 {
+    font-size: 1.6rem;
+    color: var(--cor-primaria);
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--cor-texto-suave);
+}
+
+nav ul {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+}
+
+nav ul li a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: var(--cor-primaria);
+}
+
+.icons a {
+    font-size: 1.4rem;
+}
+
+.contador {
+    display: inline-block;
+    min-width: 22px;
+    padding: 0 6px;
+    margin-left: 4px;
+    border-radius: 999px;
+    background: var(--cor-primaria);
+    color: #ffffff;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* ============ AVISOS DA LOJA ============ */
+.avisos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.avisos p {
+    background: var(--cor-suave);
+    border-radius: var(--raio);
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.avisos i {
+    color: var(--cor-primaria);
+    margin-right: 8px;
+}
+
+/* ============ VITRINE ============ */
+.vitrine h2,
+.carrinho h2 {
+    margin-bottom: 8px;
+}
+
+.nota {
+    color: var(--cor-texto-suave);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* auto-fit + minmax: 1 coluna no celular, 2, 3 ou 4 conforme a tela cresce */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    padding: 16px;
+}
+
+.card-img {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5rem;
+    background: var(--cor-suave);
+    border-radius: 8px;
+}
+
+/* para quando você trocar o emoji por uma foto de verdade */
+.card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+}
+
+.preco {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--cor-primaria);
+}
+
+/* empurra o botão para o fim do card, alinhando todos */
+.card .btn {
+    margin-top: auto;
+}
+
+/* ============ BOTÕES ============ */
+.btn {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    background: var(--cor-primaria);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--cor-primaria-escura);
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 2px;
+}
+
+/* ============ CARRINHO (classes prontas para você usar no HTML) ============ */
+.carrinho {
+    max-width: 640px;
+    margin: 40px auto;
+    padding: 24px;
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+}
+
+.vazio {
+    color: var(--cor-texto-suave);
+    margin-bottom: 20px;
+}
+
+.lista-carrinho {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.lista-carrinho li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.campo label {
+    font-weight: bold;
+}
+
+.campo input,
+.campo select {
+    padding: 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #ffffff;
+}
+
+.resumo {
+    background: var(--cor-suave);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.resumo p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resumo .total {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--cor-borda);
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.btn-finalizar {
+    width: 100%;
+}
+
+/* ============ FOOTER ============ */
+footer {
+    margin-top: 40px;
+    padding: 32px 0 16px;
+    background: var(--cor-primaria-escura);
+    color: #ffffff;
+}
+
+.contato {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.contato a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contato a:hover {
+    text-decoration: underline;
+}
+
+.copy {
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 0.85rem;
+}
